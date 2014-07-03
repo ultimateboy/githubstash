@@ -119,6 +119,11 @@ foreach ($repo_urls as $name => $repo) {
       }
     }
   }
+
+  // @todo Because the git commit creates a new git commit sha1, parent repos
+  // which reference this submodule also need to be updated. Currently, this
+  // is unsupported - it would involve looping through all the repos again.
+
   // Push all branches.
   shell_exec('git push stash --all');
 
